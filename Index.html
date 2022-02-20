@@ -1,0 +1,327 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internshal assignment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <link href="Studentwebapp/css/font-awesome.min.css" rel="stylesheet">
+ 
+  <link href="./CSS/style.css" rel="stylesheet">
+  
+  <link href="Studentwebapp/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+  
+
+  <style>
+    .headings {
+      font-size: 13px !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+ 
+  <noscript><iframe src="#" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="pdfmodel" class="modal fade" role="dialog" hieght="100%" width="100%">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 801px;">
+        <div class="modal-header bg-white">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body" id="pdfsource" style="background: #fff">
+
+        </div>
+        <div class="modal-footer bg-white">
+          <button type="button" class="btn btn-primary join" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="myclass" class="modal fade" role="dialog" hieght="100%" width="100%" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 440px;">
+        <div class="modal-header" style="background-color: white;">
+          <h4 class="modal-title text-dark"> </h4>
+          <button type="button" class="close text-danger" data-dismiss="modal">×</button>
+
+        </div>
+        <div class="modal-body" id="myclassbody" style="background-color:white;">
+          <div id="messege_alert">Please login to Practically Learning app on your mobile to view/join your classrooms
+          </div>
+        </div>
+        <div class="modal-footer" style="background-color: white;">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- container section start -->
+  <section id="container" class="">
+
+
+    <header class="header header-bg d-flex align-items-center d-md-block">
+      <div class="toggle-nav d-flex align-items-center">
+
+        <img class="hamburger-icon" src="./img/hamburger.svg" alt="">
+
+      </div>
+
+      <div class="mb-search-box d-md-none mr-3">
+        <input type="text" class="search-txt" name="" placeholder="Search...">
+        <a href="#" class="fa fa-search search-btn"></a>
+      </div>
+
+      <!-- Mobile search End -->
+
+      <div class="nav search-row" id="top_menu">
+        <!--  search form start -->
+        <ul class="nav top-menu">
+        </ul>
+        <!--  search form end -->
+      </div>
+      <div class="top-nav notification-row">
+        <!-- notificatoin dropdown start-->
+        <ul class="nav top-menu flex-nowrap">
+
+          <li class="mt-2" style="margin-right: 600px;">
+            <div class="navbar-form search-form">
+              <a href="#"><svg onclick="searchContent()" width="11" height="11" viewBox="0 0 11 11" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+
+                </svg></a>
+              <input value="" class="form-control d-md-block d-none" id="searhdata" placeholder="Search" type="text"
+                style="font-size: 12px;">
+            </div>
+          </li>
+
+          <li id="task_notificatoin_bar" class="dropdown  mt-2">
+            <a class="icon" href="#"><img src="./img/camera.svg">
+
+            </a>
+          </li>
+
+          <li id="task_notificatoin_bar" class="dropdown  mt-2">
+            <a class="icon" href="#"><img src="./img/chat.svg">
+
+            </a>
+          </li>
+
+          <li id="task_notificatoin_bar" class="dropdown  mt-2">
+            <a class="icon" href="#">
+              <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0)">
+                  <path
+                    d="M12.8763 13.3646C8.57096 13.3646 4.29065 13.3646 -0.000536351 13.3646C-0.000536351 12.985 -0.0057759 12.6192 0.00389711 12.2534C0.00591233 12.1807 0.0482318 12.0971 0.097806 12.0399C0.671738 11.3817 0.954271 10.5913 1.17312 9.77327C1.44155 8.769 1.53062 7.74303 1.53626 6.70799C1.54029 5.99928 1.63461 5.30596 1.91714 4.64697C2.45762 3.387 3.44991 2.62029 4.73723 2.17754C4.76866 2.16649 4.80091 2.15742 4.83275 2.14676C4.97663 2.09862 5.17735 2.08954 5.24869 1.99089C5.32244 1.88909 5.264 1.69968 5.27488 1.54933C5.29423 1.28258 5.27166 0.999649 5.35751 0.753811C5.5417 0.225436 6.10757 -0.0748572 6.63676 0.0174801C7.19216 0.114553 7.58673 0.564796 7.61092 1.14092C7.62019 1.35755 7.61898 1.57498 7.60769 1.79162C7.59923 1.9538 7.64679 2.02641 7.82292 2.07337C8.93854 2.3705 9.87601 2.93676 10.5451 3.88144C11.0493 4.59291 11.2713 5.39633 11.3286 6.25064C11.3834 7.06984 11.3943 7.89417 11.4991 8.70705C11.6377 9.78116 11.9178 10.8292 12.5603 11.7341C12.7932 12.062 12.9198 12.3792 12.8791 12.773C12.8597 12.9652 12.8763 13.1621 12.8763 13.3646Z"
+                    fill="black"></path>
+                  <path
+                    d="M6.44249 14.0448C6.89229 14.0448 7.34208 14.0491 7.79148 14.042C7.92367 14.04 7.97567 14.0775 7.99904 14.2109C8.14051 15.0206 7.56013 15.8177 6.70528 15.9748C5.873 16.1275 5.02741 15.5608 4.88474 14.7412C4.8537 14.5633 4.87345 14.377 4.87264 14.1943C4.87184 14.0771 4.93633 14.0412 5.0528 14.0424C5.5163 14.0479 5.9794 14.0448 6.44249 14.0448Z"
+                    fill="black"></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0">
+                    <rect width="12.8889" height="16" fill="white"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </li>
+
+          <!-- user login dropdown start-->
+          <li class="profile-dropdown dropdown d-md-block  mt-2">
+            <a class="icon whiteBb dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuLink">
+              <span class="profile-ava"></span>
+              <img alt="" src="./img/DefaultProfilePic.png">
+
+              <span class="username ml-3 d-none d-md-block" data-placement="auto" title="-"
+                data-original-title="-">Profile name</span>
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Personal Details</a>
+              <a class="dropdown-item" href="#">Change Course</a>
+              <a class="dropdown-item" href="#">Change Password</a>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </li>
+          <!-- user login dropdown end -->
+        </ul>
+        <!-- notificatoin dropdown end-->
+      </div>
+
+    </header>
+    <!--header end-->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse">
+        <ul class="sidebar-menu">
+          <li>
+            <!--logo start-->
+            <a href="#" class="onhover-hide logo px-3 pb-0"><img alt="logo" src="./img/logo.png"></a>
+
+          </li>
+        </ul>
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu list">
+          <li class="active">
+            <a class="d-flex align-items-center" href="#">
+              <img class="hover" src="./img/home.svg">Home
+
+            </a>
+          </li>
+          <li class="dropdown dropright subject ">
+            <a href="javascript:;" data-display="static" class="d-flex align-items-center dropdown-toggle"
+              data-toggle="dropdown">
+              <img class="hover" src="./img/subjectshover.svg">
+              <img class="nothover" src="./img/subjectshover.svg">
+              Subjects
+            </a>
+          </li>
+          <li>
+            <a class="d-flex align-items-center " href="joinTestPrep.php">
+              <img class="hover" src="./img/studyplan.svg">
+              <img class="nothover" src=".//img/studyplan.svg">
+              Study Plan
+            </a>
+          </li>
+
+          <li class="">
+            <a class="d-flex align-items-center " href="#">
+              <img class="hover" src="./img/codingplus.svg">
+              <img class="nothover" src="./img/codingplus.svg">
+              Coding++
+            </a>
+          </li>
+
+          <li class="mobile-app-promotion">
+            <div style="margin-top:225px; background: #ddd8d8a8;border-radius: 8px;">
+              <h6 class="text-center pt-2">Download our mobile app</h6>
+              <div class="d-flex align-items-center justify-content-center">
+                <a target="_blank" href="#" class="pt-0 pl-0 mr-2 float-left border-0"><img src="./img/appstore.png"
+                    class="img-fluid"></a>
+                <a target="_blank" href="#" class="border-0 pt-0"><img src="./img/playstore.png" class="img-fluid"></a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end--> <img src="Studentwebapp/img/indexmobileback.svg"
+      class="mobile-back w-100 d-md-none d-inline-block" alt="">
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!--overview start-->
+
+        <div class="row">
+          <div
+            class="col-lg-12 col-md-12 slick-banner d-flex align-items-center justify-content-center col-sm-12 col-xs-12 slick-initialized slick-slider slick-dotted">
+            <div class="slick-list draggable">
+              <div class="slick-track" style="opacity: 1; width: 0px; transform: translate3d(0px, 0px, 0px);"></div>
+            </div>
+            <ul class="slick-dots" role="tablist"></ul>
+          </div>
+        </div>
+
+        <!--Carousel Wrapper-->
+        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+          <!--Indicators-->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-2" data-slide-to="1"></li>
+            <li data-target="#carousel-example-2" data-slide-to="2"></li>
+          </ol>
+          <!--/.Indicators-->
+          <!--Slides-->
+          <div class="carousel-inner" role="listbox" style="margin-left:250px;width: 700px; height: 300px;">
+            <div class="carousel-item active">
+              <div class="view">
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).webp"
+                  alt="First slide">
+                <div class="mask rgba-black-light"></div>
+              </div>
+              <div class="carousel-caption">
+                <h3 class="h3-responsive">Light mask</h3>
+                <p>First text</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <!--Mask color-->
+              <div class="view">
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).webp"
+                  alt="Second slide">
+                <div class="mask rgba-black-strong"></div>
+              </div>
+              <div class="carousel-caption">
+                <h3 class="h3-responsive">Strong mask</h3>
+                <p>Secondary text</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <!--Mask color-->
+              <div class="view">
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).webp"
+                  alt="Third slide">
+                <div class="mask rgba-black-slight"></div>
+              </div>
+              <div class="carousel-caption">
+                <h3 class="h3-responsive">Slight mask</h3>
+                <p>Third text</p>
+              </div>
+            </div>
+          </div>
+          <!--/.Slides-->
+          <!--Controls-->
+          <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <!--/.Controls-->
+        </div>
+        <!--/.Carousel Wrapper-->
+
+
+      </section>
+
+    </section>
+
+
+    <!-- container section start -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <!-- nice scroll -->
+    <!-- <script src="Studentwebapp/js/jquery.scrollTo.min.js"></script> -->
+    <!-- <script src="js/jquery.nicescroll.js" type="text/javascript"></script> -->
+
+
+  </section>
+</body>
+
+</html>
